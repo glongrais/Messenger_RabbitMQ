@@ -28,7 +28,7 @@ class ShoppingEventProducer:
         message = json.dumps(vars(shopping_event))
         routing_key = shopping_event.product_number
         self.channel.basic_publish(
-                            exchange='direct_logs', routing_key=routing_key, body=message)
+                            exchange='shopping_events_exchange', routing_key=routing_key, body=message)
 
     def close(self):
         # Do not edit this method
